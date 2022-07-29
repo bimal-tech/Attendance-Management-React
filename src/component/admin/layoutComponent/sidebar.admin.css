@@ -1,0 +1,38 @@
+.body {
+    background-color: antiquewhite;
+}
+
+.admin-sidebar {
+    background-color: white;
+}
+
+.sidebar-brand-details {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 21px;
+    color: #245372;
+    display: block;
+    line-height: 1.5;
+    padding: .8125rem .5rem;
+    transition: width .3s ease-in-out;
+    white-space: nowrap;
+}
+.sidebar-brand-details span:hover{
+    color: #245372;
+}
+.sidebar-nav-link-group{
+    color: #245372 !important;
+}
+.sidebar-nav-link-group:hover,.sidebar-nav-link:hover{
+    background-color: aliceblue !important;
+}
+.sidebar-nav-link{
+    color: #245372 !important;
+    padding-left: 3em;
+}
+
+.sidebar-nav-link.active {
+    background-color: rgba(39, 169, 255, 0.15) !important;
+    color:#2FACFE !important;
+}
