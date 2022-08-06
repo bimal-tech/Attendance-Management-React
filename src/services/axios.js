@@ -43,5 +43,43 @@ export const httpPost = async (url, data, is_strict = false, form_data=false) =>
         return response;
     } catch(error) {
         throw error
-    }    
+    }     
+}
+
+export const httpPut = async (url, data, is_form_data=false, is_strict = false) => {
+    try{
+        let headers = getHeaders({
+            is_strict: is_strict,
+            form_data: is_form_data
+        })
+        let response = await httpSvc.put(url, data, headers);
+        return response.data;
+    } catch(error) {
+        throw error
+    }  
+}
+
+export const httpGet = async (url, params = {}, is_strict= false) => {
+    try{
+        let headers = getHeaders({
+            is_strict: is_strict,
+            params: params
+        })
+        let response = await httpSvc.get(url, headers);
+        return response.data;
+    } catch(error) {
+        throw error
+    } 
+}
+
+export const httpDelete = async(url, is_strict) =>{
+    try{
+        let headers = getHeaders({
+            is_strict: is_strict
+        })
+        let response = await httpSvc.delete(url, headers);
+        return response.data;
+    } catch(error) {
+        throw error
+    } 
 }

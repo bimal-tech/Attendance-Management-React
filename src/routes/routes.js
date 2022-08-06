@@ -12,6 +12,7 @@ import AdminLayout from "../layout/admin.layout";
 import AdminHomeComponent from "../component/admin/app.component";
 import AddUser from "../pages/admin/user/addUser/addUser.user.admin";
 import EditUser from "../pages/admin/user/editUser/editUser.user.admin";
+import ListUser from "../pages/admin/user/listUser/listUser.user.admin";
 
 const Routing = () => {
     return (
@@ -21,6 +22,7 @@ const Routing = () => {
                     <Route index element={<AdminHomeComponent />} />
                     <Route path="adduser" element ={<AddUser />} />
                     <Route path="edituser" element ={<EditUser />} />
+                    <Route path="listuser" element ={<ListUser />} />
                     <Route path="*" element={<ErrorPage />}></Route>
                 </Route>
 

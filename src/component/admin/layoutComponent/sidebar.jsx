@@ -50,6 +50,12 @@ const AdminSidebar = () => {
                                     </NavLink>
                                 </li>
                                 <li className="sidebar-nav-item">
+                                    <NavLink to="listuser" className="nav-link sidebar-nav-link">
+                                    <i class="nav-icon fas fa-solid fa-user-gear"></i>
+                                        <p>List User</p>
+                                    </NavLink>
+                                </li>
+                                <li className="sidebar-nav-item">
                                     <NavLink to="edituser" className="nav-link sidebar-nav-link">
                                     <i class="nav-icon fas fa-solid fa-user-gear"></i>
                                         <p>Edit User</p>

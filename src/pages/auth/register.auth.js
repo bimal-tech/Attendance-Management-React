@@ -34,7 +34,7 @@ const RegisterPage = () => {
 
     const submitForm = async (e) => {
         e.preventDefault();
-
+console.log(data);
         try {
             let response = await register(data);
             // console.log("response3",response);

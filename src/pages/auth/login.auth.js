@@ -4,19 +4,23 @@ import "../../assets/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css
 import NavLink from "react-bootstrap/esm/NavLink";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { login } from "../../services/auth";
 const LoginPage = () => {
 
-    let [username, setUsername] = useState("");
+    let [email, setEmail] = useState("");
     let [password, setPassword] = useState();
+
     let navigate = useNavigate();
+
+
     const submitForm = async (e) => {
         e.preventDefault();
 
         try {
-            let response = await login(username, password)
+            let response = await login(email, password)
+            
             // dashboard
             navigate('/');
             toast.success(response.data.msg)
@@ -24,6 +28,13 @@ const LoginPage = () => {
             toast.error(error.msg);
         }
     }
+
+    useEffect(() => {
+        let token = localStorage.getItem("stack_8_token");
+        if (token) {
+            navigate("/admin");
+        }
+    }, []);
     return (
         <>
             <ToastContainer />
@@ -39,7 +50,14 @@ const LoginPage = () => {
 
                             <form onSubmit={submitForm}>
                                 <div className="input-group mb-3">
-                                    <input type="email" className="form-control" placeholder="Email" onChange={setUsername} />
+                                    <input type="email" className="form-control" placeholder="Email"
+                                        onChange={(e) => {
+                                            setEmail({
+                                                ...email,
+                                                email: e.target.value
+                                            })
+                                        }}
+                                    />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <span className="fas fa-envelope"></span>
@@ -47,7 +65,13 @@ const LoginPage = () => {
                                     </div>
                                 </div>
                                 <div className="input-group mb-3">
-                                    <input type="password" className="form-control" placeholder="Password" onChange={setPassword} />
+                                    <input type="password" className="form-control" placeholder="Password"
+                                        onChange={(e) => {
+                                            setPassword({
+                                                ...password,
+                                                password: e.target.value
+                                            })
+                                        }} />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <span className="fas fa-lock"></span>
