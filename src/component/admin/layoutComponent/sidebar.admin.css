@@ -29,7 +29,7 @@
 }
 .sidebar-nav-link{
     color: #245372 !important;
-    padding-left: 3em;
+    list-style: none;
 }
 
 .sidebar-nav-link.active {
