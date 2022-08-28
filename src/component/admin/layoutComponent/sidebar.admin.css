@@ -36,3 +36,11 @@
     background-color: rgba(39, 169, 255, 0.15) !important;
     color:#2FACFE !important;
 }
+
+.logout-button:hover{
+    cursor: pointer;
+}
+.lock-button{
+    padding-right: 1em;
+    padding-left: 0.4em;
+}

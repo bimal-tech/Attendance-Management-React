@@ -58,7 +58,7 @@ export const StaffEdit = (props) => {
             let response = await updateLabelById(updated_data, data.id);
             if (response.status === 200) {
                 toast.success(response.data.msg);
-                navigate("/admin/list" + props.type+'/staff');
+                navigate("/admin/listuser/staff");
             } else {
                 toast.error(response.msg);
             }

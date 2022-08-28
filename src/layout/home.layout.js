@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 
 const HomeLayout = () => {
     return (<>
-   
         <HomeMenu/>
             <Outlet /> 
     </>)

@@ -27,7 +27,7 @@ export const login = async (email, password) => {
         })
 
         let response = await httpPost('login', formData,false,true);
-        console.log(response);
+        console.log(response.data);
         let token = response.data.token;
         // let user = response.result.user;
         // let storage_user = {
@@ -35,9 +35,12 @@ export const login = async (email, password) => {
         //     email: user.email,
         //     role: user.role,
         // }
-        localStorage.setItem("stack_8_token", token);
-        // localStorage.setItem('stack_8_user', JSON.stringify(storage_user));
+        if (response.status === 200) {
+            
+            localStorage.setItem("attendance_token", token);
+        }
         return response;
+        // localStorage.setItem('stack_8_user', JSON.stringify(storage_user));
     } catch (error) {
         throw error
     }

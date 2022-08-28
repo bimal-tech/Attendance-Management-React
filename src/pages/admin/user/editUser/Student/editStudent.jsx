@@ -19,8 +19,6 @@ export const StudentEdit = (props) => {
             })
 
             let response = await httpPost('/edit/student/' + id, formData);
-            // console.log(response)
-
             return response;
         } catch (error) {
             throw error;
@@ -59,12 +57,12 @@ export const StudentEdit = (props) => {
             let response = await updateLabelById(updated_data, data.id);
             if (response.status === 200) {
                 toast.success(response.data.msg);
-                navigate("/admin/list" + props.type+'/student');
+                navigate("/admin/listuser/student");
             } else {
                 toast.error(response.msg);
             }
         } catch (error) {
-            console.error("Label Update: ", error);
+            console.error("Student Update: ", error);
         }
     }
     

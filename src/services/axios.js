@@ -78,7 +78,8 @@ export const httpDelete = async(url, is_strict) =>{
             is_strict: is_strict
         })
         let response = await httpSvc.delete(url, headers);
-        return response.data;
+        // console.log(response);
+        return response;
     } catch(error) {
         throw error
     } 

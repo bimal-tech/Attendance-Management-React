@@ -5,7 +5,6 @@ import LoginPage from "../pages/auth/login.auth";
 import ErrorPage from "../pages/error/error.page";
 import HomeComponent from "../component/home/app.component";
 import AdminLayout from "../layout/admin.layout";
-import AdminHomeComponent from "../component/admin/app.component";
 import AddUser from "../pages/admin/user/addUser/addUser.user.admin";
 import { UserEdit } from "../pages/admin/user/editUser/User/editUser.user.admin";
 import ListUser from "../pages/admin/user/listUser/listUser.user.admin";
@@ -16,12 +15,18 @@ import ListAllStaff from "../pages/admin/user/listUser/lists/listAllStaffs";
 import { StudentEdit } from "../pages/admin/user/editUser/Student/editStudent";
 import { TeacherEdit } from "../pages/admin/user/editUser/Teacher/editTeacher";
 import { StaffEdit } from "../pages/admin/user/editUser/Staff/editStaff";
+import DashboardComponent from "../pages/admin/attendance/dashboard.attendance";
+import Log from "../pages/admin/attendance/log.attendance";
+import AttendanceLayout from "../pages/admin/attendance/attendanceLayout";
 const Routing = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/admin" element={<AdminLayout />} >
-                    <Route index element={<AdminHomeComponent />} />
+                    <Route path="attendance" element={<AttendanceLayout />} >
+                        <Route path="dashboard" element={<DashboardComponent />} />
+                        <Route path="log" element={<Log />} />
+                    </Route>
                     <Route path="adduser" element={<AddUser />} />
                     <Route path="listuser" element={<ListUser />} >
                         <Route index element={<ListAllUser />} />
@@ -35,7 +40,6 @@ const Routing = () => {
                     </Route>
                     <Route path="*" element={<ErrorPage />}></Route>
                 </Route>
-
 
                 <Route path="/" element={<HomeLayout />}>
                     <Route index element={<HomeComponent />} />

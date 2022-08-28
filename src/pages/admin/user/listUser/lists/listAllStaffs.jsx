@@ -1,7 +1,7 @@
 import DataTable from "react-data-table-component";
 import { toast, ToastContainer } from "react-toastify";
 import { useEffect } from "react";
-import { httpGet } from "../../../../../services/axios";
+import { httpDelete, httpGet } from "../../../../../services/axios";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ActionButtons } from "../../../../../component/common/button/action.component";
@@ -36,9 +36,33 @@ const ListAllStaff = () => {
         },
         {
             name: 'Action',
-            selector: row => <ActionButtons dataId={row.id} onEdit={`edit/staff/${row.id}`} />,
+            selector: row => <ActionButtons dataId={row.id} onDelete={deleteStaff} onEdit={`edit/staff/${row.id}`} />,
         },
     ];
+    const deleteStaff = async (data) => {
+        try {
+            let success = await deleteStaffByID(data);
+            // console.log("success",success);
+            if (success.status === 200) {
+                // console.log(success.data.msg);
+                toast.success(success.data.msg);
+                getStaff();
+            } else {
+                // console.error(success.msg);
+                toast.error(success.data.msg);
+            }
+        } catch (error) {
+            console.error("delete Error: ", error);
+        }
+    }
+    const deleteStaffByID = async (id) => {
+        try{
+            let response = await httpDelete('/delete/staff/'+id);
+            return response;
+        } catch(error) {
+            throw error;
+        }
+    }
     useEffect(() => {
         getStaff();
     },[])
