@@ -12,7 +12,6 @@ const AdminLayout = () => {
                     <AdminSidebar />
                     <div class="content-wrapper">
                         <Outlet />
-
                     </div>
                 </div>
             </div>
